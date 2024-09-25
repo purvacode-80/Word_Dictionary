@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;*/
+    height: 100vh;
+}
+
+.container {
+    padding-top: 100px;
+    display: grid;
+    place-items: center;
+}
+
+.content {
+    background: #fff;
+    padding: 20px;
+    margin-top: 5px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(82, 70, 246, 0.925);
+    width: 300px;
+    text-align: center;
+}
+
+h1 {
+    font-family: "Playwrite DE Grund", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    margin-bottom: 20px;
+    color: rgba(90, 43, 246, 0.888);
+}
+
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5acc5a;
+}
+
+h2, h3 {
+    margin-top: 20px;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    /* background-color: floralwhite; */
+    color: black;
+    position: fixed;
+    top: 0;
+}
+
+.logo {
+    display: flex;
+    justify-content: flex-start;
+    position: fixed;
+    margin: 30px;
+}
+
+#logo-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 25%;
+    cursor: pointer;
+}
+
+.main-nav {
+    margin-top: 20px;
+}
+
+#side-menu {
+    position: fixed;
+    left: -300px; /* Initially hidden off-screen */
+    top: 0;
+    padding: 10px;
+    width: 250px;
+    height: 100%;
+    background-color: rgb(141, 5, 219);
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+ol li {
+    list-style-type: none;
+}
+
+.menu li {
+    margin: 20px;
+}
+
+.menu .title {
+        background-color: cornsilk;
+        border-radius: 25%;
+        color: black;
+        text-decoration: none;
+        text-align: center;
+        font-family: "Montserrat", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+        font-size: 25px;
+        padding: 10px 20px;
+        display: block;
+}
+
+.submenu .dropdown {
+    display: none;
+}
+
+/* Submenu items */
+.submenu .dropdown li {
+        list-style-type: none;
+        position: relative;
+        width: 150;
+    }
+    
+    /* Add a custom bullet */
+.submenu .dropdown li::before {
+        content: "\2022";       /* Unicode for bullet */
+        color: cornsilk;            /* Bullet color */
+        font-size: 20px;        /* Adjust size if necessary */
+        position: absolute;
+        left: -20px;            /* Position bullet */
+        top: 0;
+    }
+
+.dropdown a:hover .dropdown{
+    text-decoration: underline;
+}
+
+/* Submenu links */
+.submenu .dropdown a {
+    /* padding: 10px; */
+    color: cornsilk;
+    font-family: Verdana;
+    font-weight: 100;
+    font-size: 18px;
+    display: block;
+}
+
+/* Show submenu on hover */
+.submenu:hover .dropdown {
+    display: block;
+}
+
+
+/* Responsive design for mobile devices */
+@media screen and (max-width: 768px) {
+    #side-menu {
+        width: 200px;
+    }
+
+    .menu a {
+        font-size: 18px;
+    }
+}

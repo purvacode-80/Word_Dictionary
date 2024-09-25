@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Dictionary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<!-- Menubar -->
+<div class="logo">
+    <img src="../logo.png" id="logo-img" onclick="toggleMenu()">
+</div>
+<nav class="navbar">
+    <ol class="menu" id="side-menu">
+        <li>
+            <img src="logo.png" id="logo-img" onclick="toggleMenu()">
+        </li>
+        <div class="main-nav">
+                <li><a class="title" href="#">Home</a></li>
+                <li class="submenu">
+                    <a href="#courses" class="title" class="dropdown-toggle">Courses</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Grammar Lessons</a></li>
+                        <li><a href="#">Vocabulary</a></li>
+                        <li><a href="#">Reading Skills</a></li>
+                        <li><a href="#">Writing Skills</a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#tools" class="title" class="dropdown-toggle">Tools</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Word-Dictionary</a></li>
+                        <li><a href="#">Spell Checker</a></li>
+                        <li><a href="#">Multi Language Translator</a></li>
+                        <li><a href="#">Text-to-Speech & Speech-To-Text</a></li>
+                    </ul>
+                </li>
+                <li><a href="#about" class="title">About</a></li>
+            </ol>
+</nav>
+
+<div class="container">
+<div class="content">
+        <h1>Word Dictionary</h1>
+        <form method="POST">
+            <input type="text" name="word" placeholder="Enter a word" required>
+            <button id="button" type="submit">Search</button>
+        </form>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% elif meaning %}
+            <h2>Meaning of "{{ word }}":</h2>
+            {% for type, definitions in meaning.items() %}
+                <h3>{{ type }}</h3>
+                <ul>
+                    {% for definition in definitions %}
+                        <li>{{ definition }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+
+            {% if synonyms %}
+                <h3>Synonyms:</h3>
+                <ul>
+                    {% for synonym in synonyms %}
+                        <li>{{ synonym }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if antonyms %}
+                <h3>Antonyms:</h3>
+                <ul>
+                    {% for antonym in antonyms %}
+                        <li>{{ antonym }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endif %}
+        </div>
+</div>
+<script src="../static/script.js"></script>
+    </body>
+</html>
